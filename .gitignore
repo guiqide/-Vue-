@@ -3,8 +3,5 @@ assets/
 *.js
 
 # 源码注释，写完一个文件再push
-!vue-source/core/instance/init.js
-!vue-source/core/instance/lifecycle.js
-!vue-source/core/instance/events.js
-!vue-source/core/instance/events.js
-!vue-source/core/vdom/helpers/update-listeners.js
+!vue-source/src/core/instance
+!vue-source/src/core/vdom/helpers/update-listeners.js
