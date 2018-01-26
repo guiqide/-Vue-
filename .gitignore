@@ -4,3 +4,5 @@ assets/
 
 # 源码注释，写完一个文件再push
 !vue-source/core/instance/init.js
+!vue-source/core/instance/lifecycle.js
+!vue-source/core/global-api/extend.js

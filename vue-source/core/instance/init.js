@@ -39,7 +39,7 @@ export function initMixin(Vue: Class < Component > ) {
       // internal component options needs special treatment.
       initInternalComponent(vm, options)
     } else {
-      /* 方法的第一个参数，简单可以认为是Vue上的实例和属性，与第二个参数进行合并,第二个的参数优先级高于第一个，所以我们实例时传入的可以重写父类或Vue预定义的 */
+      /* 方法的第一个参数，简单可以认为是Vue类上的options，与第二个参数进行合并,第二个的参数优先级高于第一个，所以我们实例时传入的可以重写父类或Vue预定义的 */
       vm.$options = mergeOptions(
         /* 如果Vue是一个子类，通过extends将父类的方法合并到Vue下 */
         resolveConstructorOptions(vm.constructor),
@@ -48,7 +48,7 @@ export function initMixin(Vue: Class < Component > ) {
       )
     }
     /* istanbul ignore else */
-    /* 对非生产环境，会给vm增加一个代理对象，绑定在vm._renderProxy，如果使用_renderProxy内的字段进行读操作，会检查不存在的属性或者无效的类型。以Vue的warn方式打印在console.warn()下,知识点：Proxy，兼容性：> ios10 > andoroid49 */
+    /* 对非生产环境，会给vm增加一个代理对象为vm._renderProxy，正式环境也有但不会做代理处理，如果使用_renderProxy内的字段进行读操作，会检查不存在的属性或者无效的类型，并打印console.warn()；知识点：Proxy，兼容性：> ios10 > andoroid49 */
     if (process.env.NODE_ENV !== 'production') {
       initProxy(vm)
     } else {
@@ -56,7 +56,7 @@ export function initMixin(Vue: Class < Component > ) {
     }
     // expose real self
     vm._self = vm
-    initLifecycle(vm)
+    initLifecycle(vm) // 进行父子组件之间的关联，初始化一些实例字段
     initEvents(vm)
     initRender(vm)
     callHook(vm, 'beforeCreate')
