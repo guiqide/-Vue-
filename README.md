@@ -13,3 +13,5 @@ Vue的源码版本2.5.0
 [Vue实例初始化](./docs/init.md)
 
 [全局配置及API](./docs/global.md)
+
+[通过源码学到的技巧](./docs/skill.md)

@@ -62,7 +62,7 @@ export function updateListeners (
       )
     } else if (isUndef(old)) { // 没有旧的说明要初始化listener，调用处：core/instance/event.js:19
       if (isUndef(cur.fns)) {
-        cur = on[name] = createFnInvoker(cur) //TODO: 这里还没看明白，后面用一下看看是什么流程
+        cur = on[name] = createFnInvoker(cur) //TODO: 这里还没看明白，后面看下使用时的逻辑
       }
       add(event.name, cur, event.once, event.capture, event.passive)
     } else if (cur !== old) {
