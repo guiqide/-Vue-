@@ -1,7 +1,1 @@
-
 assets/
-*.js
-
-# 源码注释，写完一个文件再push
-!vue-source/src/core/instance
-!vue-source/src/core/vdom/helpers/update-listeners.js
