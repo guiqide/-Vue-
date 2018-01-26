@@ -9,5 +9,7 @@ Vue的源码版本2.5.0
 
 # 源码分析目录
 [目录结构](./docs/directories-struction.md)
+
 [Vue实例初始化](./docs/init.md)
+
 [全局配置及API](./docs/global.md)
