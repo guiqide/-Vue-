@@ -28,10 +28,10 @@ const normalizeEvent = cached((name: string): {
 export function createFnInvoker (fns: Function | Array<Function>): Function {
   function invoker () {
     const fns = invoker.fns
-    if (Array.isArray(fns)) {
+    if (Array.isArray(fns)) { // 如果listeners是二维数组，则循环执行
       const cloned = fns.slice()
       for (let i = 0; i < cloned.length; i++) {
-        cloned[i].apply(null, arguments) // 执行listeners内的每个函数
+        cloned[i].apply(null, arguments)
       }
     } else {
       // return handler return value for single handlers
