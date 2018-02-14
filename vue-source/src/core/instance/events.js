@@ -114,6 +114,7 @@ export function eventsMixin (Vue: Class<Component>) {
   Vue.prototype.$emit = function (event: string): Component {
     const vm: Component = this
     if (process.env.NODE_ENV !== 'production') {
+      // 如果event不是全小写，则警告
       const lowerCaseEvent = event.toLowerCase()
       if (lowerCaseEvent !== event && vm._events[lowerCaseEvent]) {
         tip(
@@ -125,7 +126,7 @@ export function eventsMixin (Vue: Class<Component>) {
         )
       }
     }
-    let cbs = vm._events[event]
+    let cbs = vm._events[event] // vm._events对象下面，每个event名下面就是这个的on方法
     if (cbs) {
       cbs = cbs.length > 1 ? toArray(cbs) : cbs
       const args = toArray(arguments, 1)

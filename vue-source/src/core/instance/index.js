@@ -15,9 +15,9 @@ function Vue (options) {
 }
 
 initMixin(Vue)
-stateMixin(Vue)
-eventsMixin(Vue)
-lifecycleMixin(Vue)
-renderMixin(Vue)
+stateMixin(Vue) // Vue.prototype.$data  Vue.prototype.$props  Vue.prototype.$set  Vue.prototype.$delete Vue.prototype.$watch
+eventsMixin(Vue) // Vue.prototype.$on Vue.prototype.$once Vue.prototype.$off Vue.prototype.$emit
+lifecycleMixin(Vue) // Vue.prototype._update
+renderMixin(Vue) // Vue.prototype.$nextTick Vue.prototype._render
 
 export default Vue
